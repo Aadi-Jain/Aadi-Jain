@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aadi Jain | Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel = "icon" href = "media/title_icon.png" type = "image/x-icon" sizes ="32x32">
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
+	
+
+</head>
+<body>
+	<center id="top-center" >
+		<div class="container-1">
+			<div class="container-1-1">
+				<div class="nav-element">
+					Aadi <span>Jain</span><sub style="font-size: 10px;">hey there:D</sub>
+				</div>
+			</div>
+			<div class="container-1-2">
+				<div class="nav-element">
+					<a href="index.html"><p class="nav-content active">Home</p></a>
+				</div>
+				<div class="nav-element">
+					<a href="blog.html"><p class="nav-content ">Blog</p></a>
+				</div>
+				<div class="nav-element">
+					<a href="portfolio.html"><p class="nav-content ">Portfolio</p></a>
+				</div>
+				<div class="nav-element">
+					<a href="miscellaneous.html"><p class="nav-content ">Miscellaneous</p></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-2">
+			<h1 class="typewrite">
+  				<p href="" class="typewrite" data-period="2000" data-type='[ "Hi, I&#39;m Aadi.", "This is my hub. Have a look around;)", "I Love to Code." ]'>
+  					<span class="wrap"></span>
+  				</p>
+			</h1>
+			<h2 style="margin-top: 40px">
+				With an affinity for <span class="highlight">UX and Design,</span> and feel good comedy classics, I am a 12th grade student currently studying at <span class="underline">Sanskriti School</span>... 
+			</h2>
+			<br>
+			<div class="container-2-1" style="width: 100%;">
+				<div style="padding: auto; width: 100%; height: auto;"><p style="margin: auto;"><br><br><br><br><br><h2 class="vertical">FAREWELL '22</h2></div>
+				
+			</div>
+			<hr style="border: none;
+    			width: 100%;
+    			height: 3px;
+    			background: #1BA098;
+    			margin: 7vh auto;
+    			">
+    		
+    		<div class="container-3" style="width: 100%;">
+    			<h1 class="typewrite underline">🎵 Tunes <sup style="font-size: 10px;">API by LastFm</sup></h1><br>
+    			<h3>
+				<span class="highlight"></span>
+				<span class="underline"></span>
+				<div id="now_playing"></div>
+				
+				</h3>
+    		</div>
+			<hr style="border: none;
+    			width: 100%;
+    			height: 3px;
+    			background: #1BA098;
+    			margin: 7vh auto;
+    			">
+    		
+    		<div class="container-3">
+    			<h1 class="typewrite underline">☎️ Contact <span style="color: #1BA098;">me!</span><sup style="font-size: 10px">9773500570</sup></h1><br>
+    			<h3>
+				<span class="highlight"></span>
+				<span class="underline"></span>
+				I am currently <span class="highlight">not accepting</span> new freelance projects. <br> 
+				For future queries, you can always E-mail me at: <span class="underline" style="font-family:'Raleway-Black'">aadijainOfficial@gmail.com</span>
+				<br><br>
+				More networks:<br><br>
+			<div class="flex">
+				<a href="https://www.linkedin.com/in/aadijain17/" rel="noopener" target="_blank">
+					<span class="underline">
+						<img src="media/linkedin.jpg" draggable="false" style="height: 20px;width: auto;border-radius: 25%;">LinkedIn  
+					</span>
+				</a>  
+				<a href="https://open.spotify.com/user/elmyacoufu11d2e0kro5dl05a?si=b3653dfae73645c6" rel="noopener" target="_blank">
+					<span class="underline">
+						<img src="media/spotify.jpg" draggable="false" style="height: 20px;width: auto;border-radius: 50%;">Spotify    
+					</span>
+				</a>
+				<a href="https://www.instagram.com/diofthecreed/" rel="noopener" target="_blank"><span class="underline"><img src="media/instagram.jpg" draggable="false" style="height: 20px;width: auto;border-radius: 27%;">Instagram  </span></a>
+			</div>
+				</h3>
+    		</div>
+		</div>
+
+	</center>
+
+
+	<center id="top-center" style="padding-top: 0px;">
+			<hr class="hr">
+		<footer>
+			<span class="marked">Have a gr8 day!<br></span>
+			<span class="marked">See you again...<br></span>
+			<span class="marked">© 2022 Aadi Jain</span>
+		</footer>
+	</center>
+	<script src="scripts/index.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+  // Create a new API Key here: http://www.last.fm/api/account/create
+  var api_key = 'f957274957811abbc1a6db0825a7e0fc';
+  // Your last.fm username. We'll use this to fetch your tracks and link to your profile.
+  var username = 'diofthecreed';
+  // This is the URL of the API we're calling.
+  var base_url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='+username+'&api_key='+api_key+'&limit=1&format=json';
+  $.getJSON(base_url, function(data){
+    // Check to see if we're getting an Array or Object.
+    // If we're listening to something right now, the API returns the song we're currently listening to as well as the last song we listened to, which would be an Array.
+    // If we aren't listening toa nything right now, the API returns the last song we listened to, which would appear to jQuery as an Object.
+    console.log(data.recenttracks.track)
+    if(jQuery.type(data.recenttracks.track) === 'array') {
+      // Grab the first item out of the Array.
+      var nowPlaying = data.recenttracks.track[0];
+
+      var listening_text = '<span class="small underline2 underline">Currently listening to:</span><br>';
+    }
+    else {
+      // We don't have an Array, so just return the whole Hash.
+      var nowPlaying = data.recenttracks.track;
+      var listening_text = 'Last listened to<br> ';
+    }
+    var currentTrack = "‎ ‎  ‎<span class='big'>"+nowPlaying['name'] +"</span>"+ 'by '  +nowPlaying['artist']['#text'];
+
+    $('#now_playing').html('<a href="http://last.fm/user/' + username + '">‎'+ listening_text + "<div id='align'> "+"<img src="+nowPlaying['image']['3']['#text']+" class='cover' >"+"<div id='align2'>"+currentTrack + '</div></div></a>');
+  });
+});
+	</script>
+</body>
+</html>
